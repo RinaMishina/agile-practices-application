@@ -7,11 +7,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
 import java.io.IOException;
-import java.util.Random;
 import java.util.UUID;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_OK;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -30,8 +28,6 @@ public class RetrofitTests {
 
     @Test
     public void shouldPost() throws IOException {
-
-
         String email = UUID.randomUUID() + "@mail.ru";
         String salt = "some-salt";
         String secret = "749f09bade8aca7556749f09bade8aca7556";
@@ -46,7 +42,6 @@ public class RetrofitTests {
 
     @Test
     public void shouldGetAllClients() throws IOException {
-
         int size = service.getClients().execute().body().size();
         assertTrue(size > 0);
     }

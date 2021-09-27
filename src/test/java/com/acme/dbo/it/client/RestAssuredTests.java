@@ -30,8 +30,6 @@ public class RestAssuredTests implements ClientEndpoint {
 
     @Test
     public void shouldGetClientByFirstId() {
-
-
         givenRequest.
                 when().
                 get(CLIENT_ID, 4).
