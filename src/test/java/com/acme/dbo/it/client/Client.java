@@ -1,17 +1,24 @@
 package com.acme.dbo.it.client;
 
+import javax.persistence.*;
+import java.time.Instant;
+
+@Entity(name = "testClient")
+@Table(name = "CLIENT")
 public class Client {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String login;
     private String salt;
     private String secret;
-    private String created;
+    private Instant created;
     private boolean enabled;
 
     public Client() {
     }
 
-    public Client(String login, String salt, String secret, String created, Boolean enabled) {
+    public Client(String login, String salt, String secret, Instant created, Boolean enabled) {
         this.login = login;
         this.salt = salt;
         this.secret = secret;
@@ -19,11 +26,11 @@ public class Client {
         this.enabled = enabled;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -61,11 +68,11 @@ public class Client {
                 '}';
     }
 
-    public String getCreated() {
+    public Instant getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Instant created) {
         this.created = created;
     }
 
