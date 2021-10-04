@@ -1,7 +1,13 @@
 package com.acme.dbo.it.client;
 
+import javax.persistence.*;
+
+@Entity(name = "createClient")
+@Table(name = "CLIENT")
 public class CreateClient {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String login;
     private String salt;
     private String secret;
@@ -16,11 +22,11 @@ public class CreateClient {
         this.secret = secret;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
